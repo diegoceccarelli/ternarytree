@@ -87,4 +87,11 @@
 			</plugin>
 		</plugins>
 	</build>
+		<repositories>
+		<repository>
+			<id>dropbox</id>
+			<url>https://dl.dropboxusercontent.com/u/4663256/mvn-repository/</url>
+		</repository>
+	</repositories>
+	
 </project>
