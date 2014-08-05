@@ -1,4 +1,10 @@
 /target
 .classpath
+<<<<<<< HEAD
 .project
 .settings
+=======
+/.settings/
+/.project
+/.gitignore
+>>>>>>> 8ec617bce44f6b17eb517d873e21f20440512080
