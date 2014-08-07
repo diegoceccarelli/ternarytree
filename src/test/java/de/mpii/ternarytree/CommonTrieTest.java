@@ -107,7 +107,10 @@ public class CommonTrieTest {
 		testGet3Common(true);
 	}
 
+<<<<<<< HEAD
 	@SuppressWarnings({ "rawtypes", "unchecked" })
+=======
+>>>>>>> master
 	private void testGet3Common(boolean serialize) {
 		t.put("the red dog", 0);
 		t.put("the red", 1);
@@ -123,7 +126,11 @@ public class CommonTrieTest {
 		if (serialize) {
 			try {
 				File serial = File.createTempFile("serialTrie", "gzip");
+<<<<<<< HEAD
 				Serializable<Trie> st = (Serializable) t;
+=======
+				SerializableTrie st = (SerializableTrie) t;
+>>>>>>> master
 				st.serialize(new FileOutputStream(serial));
 				t = st.deserialize(new FileInputStream(serial));
 			} catch (IOException e) {
@@ -166,6 +173,34 @@ public class CommonTrieTest {
 		// System.out.println(tt.toString());
 	}
 
+<<<<<<< HEAD
+=======
+	@Test
+	public void testGetLongestMatch() {
+		TernaryTriePrimitive ttp = new TernaryTriePrimitive();
+		ttp.put("Napoleon", 1);
+		ttp.put("First French Empire", 2);
+		ttp.put("Waterloo", 3);
+		ttp.put("Wellington", 4);
+		ttp.put("Blücher", 5);
+		ttp.put("Saint Helena", 6);
+		ttp.put("Invalides", 7);
+
+		String text = "Napoleon was the empror of the First French Empire . "
+				+ "He was defeated at Waterloo by Wellington and Blücher . "
+				+ "He was banned to Saint Helena , died of stomach cancer, "
+				+ "and was buried at Invalides .";
+		String[] tokens = text.split(" ");
+		Match match = ttp.getLongestMatch(tokens, 0);
+		assertEquals(0, match.getTokenOffset());
+		assertEquals(0, match.getTokenCount());
+
+		match = ttp.getLongestMatch(tokens, 6);
+		assertEquals(6, match.getTokenOffset());
+		assertEquals(4, match.getTokenCount());
+	}
+
+>>>>>>> master
 	private String getPrefixedString(String key) {
 		String[] tokens = key.split(" ");
 		String prefixedString = "";
