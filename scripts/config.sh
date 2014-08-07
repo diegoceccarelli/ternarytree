@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="0.0.1-SNAPSHOT"
+VERSION="0.0.3-SNAPSHOT"
 XMX="-Xmx4000m"
 #LOG=INFO
 PROJECT_NAME=ternarytree
