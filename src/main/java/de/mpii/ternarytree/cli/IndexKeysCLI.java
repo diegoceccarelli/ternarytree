@@ -18,6 +18,7 @@ package de.mpii.ternarytree.cli;
 import it.cnr.isti.hpc.cli.AbstractCommandLineInterface;
 import it.cnr.isti.hpc.log.ProgressLogger;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -25,6 +26,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import de.mpii.ternarytree.TernaryTriePrimitive;
+import de.mpii.ternarytree.TrieBuilder;
 
 /**
  * @author Diego Ceccarelli <diego.ceccarelli@isti.cnr.it>
@@ -63,7 +65,8 @@ public class IndexKeysCLI extends AbstractCommandLineInterface {
 			pl.up();
 		}
 		logger.info("done, seriazing in {}", cli.getOutput());
-		t.serialize(cli.getOutput());
+		TrieBuilder tb = new TrieBuilder();
+		tb.write(t, new File(cli.getOutput()));
 		logger.info("done");
 		cli.closeInput();
 

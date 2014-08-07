@@ -107,10 +107,6 @@ public class CommonTrieTest {
 		testGet3Common(true);
 	}
 
-<<<<<<< HEAD
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-=======
->>>>>>> master
 	private void testGet3Common(boolean serialize) {
 		t.put("the red dog", 0);
 		t.put("the red", 1);
@@ -126,11 +122,7 @@ public class CommonTrieTest {
 		if (serialize) {
 			try {
 				File serial = File.createTempFile("serialTrie", "gzip");
-<<<<<<< HEAD
-				Serializable<Trie> st = (Serializable) t;
-=======
 				SerializableTrie st = (SerializableTrie) t;
->>>>>>> master
 				st.serialize(new FileOutputStream(serial));
 				t = st.deserialize(new FileInputStream(serial));
 			} catch (IOException e) {
@@ -173,8 +165,6 @@ public class CommonTrieTest {
 		// System.out.println(tt.toString());
 	}
 
-<<<<<<< HEAD
-=======
 	@Test
 	public void testGetLongestMatch() {
 		TernaryTriePrimitive ttp = new TernaryTriePrimitive();
@@ -200,7 +190,6 @@ public class CommonTrieTest {
 		assertEquals(4, match.getTokenCount());
 	}
 
->>>>>>> master
 	private String getPrefixedString(String key) {
 		String[] tokens = key.split(" ");
 		String prefixedString = "";

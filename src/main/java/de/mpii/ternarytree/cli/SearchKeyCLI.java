@@ -18,13 +18,14 @@ package de.mpii.ternarytree.cli;
 import it.cnr.isti.hpc.benchmark.Stopwatch;
 import it.cnr.isti.hpc.cli.AbstractCommandLineInterface;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import de.mpii.ternarytree.TernaryTriePrimitive;
 import de.mpii.ternarytree.Trie;
+import de.mpii.ternarytree.TrieBuilder;
 
 /**
  * @author Diego Ceccarelli <diego.ceccarelli@isti.cnr.it>
@@ -46,8 +47,8 @@ public class SearchKeyCLI extends AbstractCommandLineInterface {
 
 	public static void main(String[] args) throws IOException {
 		SearchKeyCLI cli = new SearchKeyCLI(args);
-
-		Trie t = new TernaryTriePrimitive(1).deserialize(cli.getParam("index"));
+		TrieBuilder tb = new TrieBuilder();
+		Trie t = tb.loadTernaryTriePrimitive(new File(cli.getParam("index")));
 		Stopwatch sw = new Stopwatch();
 		sw.start("time");
 		int value = t.get(cli.getParam("key"));
