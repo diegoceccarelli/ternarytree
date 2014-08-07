@@ -60,7 +60,7 @@ public class IndexKeysCLI extends AbstractCommandLineInterface {
 				id = scanner.nextInt();
 
 			}
-			logger.info("adding {} -> {}", key, id);
+			logger.debug("adding {} -> {}", key, id);
 			t.put(key, id);
 			pl.up();
 		}
